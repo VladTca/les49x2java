@@ -1,14 +1,6 @@
-public class Programmer {
-    String name;
-    String status;
-
-    public Programmer(String name, String status) {
-        this.name = name;
-        this.status = status.toLowerCase();
-    }
-
+public record Programmer(String name, String status) {
     public String doWork(String taskMsg) {
-        switch (status) {
+        switch (status.trim().toLowerCase()) {
             case "доступен":
                 return taskMsg.toUpperCase();
             case "занят":
